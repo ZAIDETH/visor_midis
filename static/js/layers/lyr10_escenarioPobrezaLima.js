@@ -1,27 +1,4 @@
 
-function pop_EscenarioPobrezaLima_D_10(feature, layer) {
-    var popupContent = '<table>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <th scope="row">gridcode</th>\
-                <td>' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(feature.properties['Shape_Length'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
-            </tr>\
-        </table>';
-    layer.bindPopup(popupContent, {maxHeight: 400});
-    var popup = layer.getPopup();
-    var content = popup.getContent();
-    var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
-    popup.setContent(updatedContent);
-}
-
 function style_EscenarioPobrezaLima_D_10_0(feature) {
     switch(String(feature.properties['gridcode'])) {
         case '1':
@@ -95,7 +72,7 @@ var layer_EscenarioPobrezaLima_D_10 = new L.geoJson(json_EscenarioPobrezaLima_D_
     dataVar: 'json_EscenarioPobrezaLima_D_10',
     layerName: 'layer_EscenarioPobrezaLima_D_10',
     pane: 'pane_EscenarioPobrezaLima_D_10',
-    onEachFeature: pop_EscenarioPobrezaLima_D_10,
+    onEachFeature: pintarPopup('EscenarioPobrezaLima_D'),
     style: style_EscenarioPobrezaLima_D_10_0,
 });
 bounds_group.addLayer(layer_EscenarioPobrezaLima_D_10);

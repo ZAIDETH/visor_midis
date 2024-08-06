@@ -1,25 +1,4 @@
 
-function pop_MCBrechasPESJL_5(feature, layer) {
-    var popupContent = '<table>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(feature.properties['Shape_Length'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
-            </tr>\
-        </table>';
-    layer.bindPopup(popupContent, {maxHeight: 400});
-    var popup = layer.getPopup();
-    var content = popup.getContent();
-    var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
-    popup.setContent(updatedContent);
-}
 
 function style_MCBrechasPESJL_5_0(feature) {
     switch(String(feature.properties['gridcode'])) {
@@ -94,9 +73,7 @@ var layer_MCBrechasPESJL_5 = new L.geoJson(json_MCBrechasPESJL_5, {
     dataVar: 'json_MCBrechasPESJL_5',
     layerName: 'layer_MCBrechasPESJL_5',
     pane: 'pane_MCBrechasPESJL_5',
-    onEachFeature: function (f, l) {
-        l.bindPopup('<h2>Brechas PE</h2><pre>'+JSON.stringify(f.properties,null,' ').replace(/[\{\}"]/g,'')+'</pre>');
-    },
+    onEachFeature: pintarPopup('MCBrechasPESJL'),
     style: style_MCBrechasPESJL_5_0,
 });
 bounds_group.addLayer(layer_MCBrechasPESJL_5);

@@ -1,29 +1,4 @@
 
-function pop_RiesgoBajasTemperaturas_3(feature, layer) {
-    var popupContent = '<table>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(feature.properties['Shape_Length'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
-            </tr>\
-        </table>';
-    layer.bindPopup(popupContent, {maxHeight: 400});
-    var popup = layer.getPopup();
-    var content = popup.getContent();
-    var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
-    popup.setContent(updatedContent);
-}
-
 function style_RiesgoBajasTemperaturas_3_0(feature) {
     switch(String(feature.properties['gridcode'])) {
         case '2':
@@ -82,7 +57,7 @@ var layer_RiesgoBajasTemperaturas_3 = new L.geoJson(json_RiesgoBajasTemperaturas
     dataVar: 'json_RiesgoBajasTemperaturas_3',
     layerName: 'layer_RiesgoBajasTemperaturas_3',
     pane: 'pane_RiesgoBajasTemperaturas_3',
-    onEachFeature: pop_RiesgoBajasTemperaturas_3,
+    onEachFeature: pintarPopup('Riesgo bajas temperatura'),
     style: style_RiesgoBajasTemperaturas_3_0,
 });
 bounds_group.addLayer(layer_RiesgoBajasTemperaturas_3);

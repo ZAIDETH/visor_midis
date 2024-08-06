@@ -1,26 +1,4 @@
 
-function pop_MCContigoPESJL_6(feature, layer) {
-    var popupContent = '<table>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(feature.properties['Shape_Length'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
-            </tr>\
-        </table>';
-    layer.bindPopup(popupContent, {maxHeight: 400});
-    var popup = layer.getPopup();
-    var content = popup.getContent();
-    var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
-    popup.setContent(updatedContent);
-}
-
 function style_MCContigoPESJL_6_0(feature) {
     switch(String(feature.properties['gridcode'])) {
         case '1':
@@ -94,9 +72,7 @@ var layer_MCContigoPESJL_6 = new L.geoJson(json_MCContigoPESJL_6, {
     dataVar: 'json_MCContigoPESJL_6',
     layerName: 'layer_MCContigoPESJL_6',
     pane: 'pane_MCContigoPESJL_6',
-    onEachFeature: function (f, l) {
-        l.bindPopup('<h2>Contigo PE</h2><pre>'+JSON.stringify(f.properties,null,' ').replace(/[\{\}"]/g,'')+'</pre>');
-    },
+    onEachFeature: pintarPopup('MCContigoPESJL'),
     style: style_MCContigoPESJL_6_0,
 });
 bounds_group.addLayer(layer_MCContigoPESJL_6);

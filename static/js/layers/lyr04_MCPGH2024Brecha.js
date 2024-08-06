@@ -1,29 +1,4 @@
 
-function pop_MCHogaresPGH2024BrechasSJL_4(feature, layer) {
-    var popupContent = '<table>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['gridcode'] !== null ? autolinker.link(feature.properties['gridcode'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Length'] !== null ? autolinker.link(feature.properties['Shape_Length'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
-            </tr>\
-        </table>';
-    layer.bindPopup(popupContent, {maxHeight: 400});
-    var popup = layer.getPopup();
-    var content = popup.getContent();
-    var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
-    popup.setContent(updatedContent);
-}
-
 function style_MCHogaresPGH2024BrechasSJL_4_0(feature) {
     switch(String(feature.properties['gridcode'])) {
         case '1':
@@ -97,7 +72,7 @@ var layer_MCHogaresPGH2024BrechasSJL_4 = new L.geoJson(json_MCHogaresPGH2024Brec
     dataVar: 'json_MCHogaresPGH2024BrechasSJL_4',
     layerName: 'layer_MCHogaresPGH2024BrechasSJL_4',
     pane: 'pane_MCHogaresPGH2024BrechasSJL_4',
-    onEachFeature: pop_MCHogaresPGH2024BrechasSJL_4,
+    onEachFeature: pintarPopup('MCHogaresPGH2024BrechasSJL'),
     style: style_MCHogaresPGH2024BrechasSJL_4_0,
 });
 bounds_group.addLayer(layer_MCHogaresPGH2024BrechasSJL_4);

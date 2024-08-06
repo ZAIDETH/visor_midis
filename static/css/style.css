@@ -48,3 +48,12 @@ html, body, #map {
     padding: 0;
     
 }
+
+.btns-control{
+    width:35px;
+    height: 35px;
+    line-height: 30px;
+    background-color: #f8f8f8 !important;
+    text-align: center;
+    cursor: pointer;
+}
