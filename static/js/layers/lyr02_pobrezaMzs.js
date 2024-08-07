@@ -44,7 +44,7 @@ var layer_PobrezaenMzINEI_2 = new L.geoJson(json_PobrezaenMzINEI_2, {
     style: style_PobrezaenMzINEI_2_0,
 });
 bounds_group.addLayer(layer_PobrezaenMzINEI_2);
-map.addLayer(layer_PobrezaenMzINEI_2);
+// map.addLayer(layer_PobrezaenMzINEI_2);
 
 
 // Añadir la leyenda al mapa
@@ -67,6 +67,7 @@ map.addLayer(layer_PobrezaenMzINEI_2);
     div.style.backgroundColor = 'white';  // Añadir fondo blanco
     div.style.padding = '10px';  // Añadir padding para mejor presentación
     // div.style.border = '2px solid #ccc';  // Añadir borde
+    div.style.display = 'none';
 })();
 
 

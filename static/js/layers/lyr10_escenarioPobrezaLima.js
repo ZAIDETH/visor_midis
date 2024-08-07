@@ -44,7 +44,7 @@ var layer_EscenarioPobrezaLima_D_10 = new L.geoJson(json_EscenarioPobrezaLima, {
     style: style_EscenarioPobrezaLima_D_10_0,
 });
 bounds_group.addLayer(layer_EscenarioPobrezaLima_D_10);
-// map.addLayer(layer_EscenarioPobrezaLima_D_10);
+map.addLayer(layer_EscenarioPobrezaLima_D_10);
 
 // Añadir la leyenda al mapa
 (function() {
@@ -67,6 +67,6 @@ bounds_group.addLayer(layer_EscenarioPobrezaLima_D_10);
     div.innerHTML += labels.join('<br>');
     div.style.backgroundColor = 'white';  // Añadir fondo blanco
     div.style.padding = '10px';  // Añadir padding para mejor presentación
-    div.style.display = 'none'; // Añadir display para ocultar la leyenda
+
 
 })();
