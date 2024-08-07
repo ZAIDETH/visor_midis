@@ -1,83 +1,155 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
-        <link rel="stylesheet" href="css/qgis2web.css">
-        <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="static/css/style.css">
 
-        <title></title>
-    </head>
-    <body>
-        <div id="header">
-            <img src="static/img/LogoOficialMIDIS.jpg" alt="Logo del MIDIS">
-            <div id="title">
-                Dirección General de Calidad de la Gestión de las Prestaciones Sociales
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+    <link rel="stylesheet" href="css/qgis2web.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/sidebar.css">
+
+    <title></title>
+</head>
+
+<body>
+    <div id="header">
+        <img src="static/img/LogoOficialMIDIS.jpg" alt="Logo del MIDIS">
+        <div id="title">
+            Dirección General de Calidad de la Gestión de las Prestaciones Sociales
+        </div>
+
+    </div>
+
+    <!-- <div class="sidebar">
+        <button aria-label="close sidebar" type="button" class="close-button">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="sidebar-menu">
+            <li class="menu-item" data-item="menu">
+                <i class="fas fa-bars"></i>
+            </li>
+            <li class="menu-item" data-item="person">
+                <img src="static/img/layers.png" alt="">
+            </li>
+            <li class="menu-item" data-item="email">
+                <img src="static/img/leyenda.png" alt="">
+
+            </li>
+            <li class="menu-item" data-item="settings">
+                <i class="fas fa-cog"></i>
+            </li>
+        </ul>
+
+        <div class="sidebar-content">
+            <div class="item-content" id="menu">
+                <h2>Sidebar without plugins</h2>
+                <div class="content">
+                    Such a menu is not difficult to create on your own, you only need a
+                    little html, css and only 40 lines of js. Not only will we learn
+                    something new, but we will adjust the solution 100% to our
+                    assumptions.<br><br>You really don't need any plugin to do
+                    something like this.
+                </div>
             </div>
-            
+            <div class="item-content" id="person">
+                <h2>Person</h2>
+                <div class="content">
+                    <div id="layer-control-container">
+
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" id="email">
+                <h2>Email</h2>
+                <div class="content">
+                    <div class="legend">
+                        <h3>LEGEND:</h3>
+                        <div class="legend-items">
+                            <span id="Distritos"><i></i> Distritos</span>
+                            <span id="Pobreza por manzana"><i></i> Pobreza por manzana</span>
+                            <span id="Riesgo bajas temperatura"><i></i> Riesgo bajas temperatura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" id="settings">
+                <h2>Settings</h2>
+                <div class="content">settings</div>
+            </div>
         </div>
-        <div id="map">
-        </div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script>
-        <script src="js/L.Control.Layers.Tree.min.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <!-- datos capas -->
-        <script src="data/Distritos_Lima_1.js"></script>
-        <script src="data/PobrezaenMzINEI_2.js"></script>
-        <script src="data/RiesgoBajasTemperaturas_3.js"></script>
-        <script src="data/MCHogaresPGH2024BrechasSJL_4.js"></script>
-        <script src="data/MCBrechasPESJL_5.js"></script>
-        <script src="data/MCContigoPESJL_6.js"></script>
-        <script src="data/MCJuntosPESJL_7.js"></script>
-        <script src="data/MCPension65PESJL_8.js"></script>
-        <script src="data/MCPGHPESJL_9.js"></script>
-        <script src="data/EscenarioPobrezaLima_D_10.js"></script>
-        <script src="data/HogaresPGH2024BrechasAtencionSJL_11.js"></script>
-        <script src="data/Juntos_SJL_12.js"></script>
-        <script src="data/Contigo_SJL_13.js"></script>
-        <script src="data/Brechas_SJL_14.js"></script>
-        <script src="data/HogaresconPension65PESJL_15.js"></script>
-        <script src="data/HogaresPGHPESJL_16.js"></script>
-        <!-- funcionabilidad mapa -->
-        <script src="static/js/mainMap.js"></script>
-        <script src="static/js/zoomControls.js"></script>
-        <script src="static/js/layers/lyr01_distritos.js"></script>
-        <script src="static/js/layers/lyr02_pobrezaMzs.js"></script>
-        <script src="static/js/layers/lyr03_riesgoBajaTemperatura.js"></script>
-        <script src="static/js/layers/lyr04_MCPGH2024Brecha.js"></script>
-        <script src="static/js/layers/lyr05_MCBrechasPE.js"></script>
-        <script src="static/js/layers/lyr06_MCContigoPE.js"></script>
-        <script src="static/js/layers/lyr07_MCJuntosPE.js"></script>
-        <script src="static/js/layers/lyr08_MCPension65.js"></script>
-        <script src="static/js/layers/lyr09_MCPGHSJL.js"></script>
-        <script src="static/js/layers/lyr10_escenarioPobrezaLima.js"></script>
-        <script src="static/js/layers/lyr11_HogaresPGH2024BrechasAtencionSJL.js"></script>
-        <script src="static/js/layers/lyr12_Juntos_SJL.js"></script>
-        <script src="static/js/layers/lyr13_contigoPE.js"></script>
-        <script src="static/js/layers/lyr14_Brechas_SJL.js"></script>
-        <script src="static/js/layers/lyr15_HogaresconPension65PESJL.js"></script>
-        <script src="static/js/layers/lyr16_HogaresPGHPESJL.js"></script>
+    </div> -->
+    <div id="map">
+    </div>
+    <!-- <script src="js/qgis2web_expressions.js"></script> -->
+    <!-- <script src="js/leaflet.js"></script> -->
+    <!-- <script src="js/L.Control.Layers.Tree.min.js"></script> -->
+    <!-- <script src="js/leaflet.rotatedMarker.js"></script> -->
+    <!-- <script src="js/leaflet.pattern.js"></script> -->
+    <script src="js/leaflet-hash.js"></script>
+    <!-- <script src="js/Autolinker.min.js"></script> -->
+    <!-- <script src="js/rbush.min.js"></script> -->
+    <!-- <script src="js/labelgun.min.js"></script> -->
+    <!-- <script src="js/labels.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <!-- datos capas -->
+    <script src="data/Distritos_Lima_1.js"></script>
+    <script src="data/PobrezaenMzINEI_2.js"></script>
+    <script src="data/RiesgoBajasTemperaturas_3.js"></script>
+    <script src="data/MCHogaresPGH2024BrechasSJL_4.js"></script>
+    <script src="data/MCBrechasPESJL_5.js"></script>
+    <script src="data/MCContigoPESJL_6.js"></script>
+    <script src="data/MCJuntosPESJL_7.js"></script>
+    <script src="data/MCPension65PESJL_8.js"></script>
+    <script src="data/MCPGHPESJL_9.js"></script>
+    <script src="data/EscenarioPobrezaLima_D_10.js"></script>
+    <script src="data/HogaresPGH2024BrechasAtencionSJL_11.js"></script>
+    <script src="data/Juntos_SJL_12.js"></script>
+    <script src="data/Contigo_SJL_13.js"></script>
+    <script src="data/Brechas_SJL_14.js"></script>
+    <script src="data/HogaresconPension65PESJL_15.js"></script>
+    <script src="data/HogaresPGHPESJL_16.js"></script>
+    <!-- funcionabilidad mapa -->
+    <script src="static/js/mainMap.js"></script>
+    <script src="static/js/zoomControls.js"></script>
+    <script src="static/js/sidebar.js"></script>
+    <!-- capas -->
+    <script src="static/js/layers/lyr01_distritos.js"></script>
+    <script src="static/js/layers/lyr02_pobrezaMzs.js"></script>
+    <script src="static/js/layers/lyr03_riesgoBajaTemperatura.js"></script>
+    <script src="static/js/layers/lyr04_MCPGH2024Brecha.js"></script>
+    <script src="static/js/layers/lyr05_MCBrechasPE.js"></script>
+    <script src="static/js/layers/lyr06_MCContigoPE.js"></script>
+    <script src="static/js/layers/lyr07_MCJuntosPE.js"></script>
+    <script src="static/js/layers/lyr08_MCPension65.js"></script>
+    <script src="static/js/layers/lyr09_MCPGHSJL.js"></script>
+    <script src="static/js/layers/lyr10_escenarioPobrezaLima.js"></script>
+    <script src="static/js/layers/lyr11_HogaresPGH2024BrechasAtencionSJL.js"></script>
+    <script src="static/js/layers/lyr12_Juntos_SJL.js"></script>
+    <script src="static/js/layers/lyr13_contigoPE.js"></script>
+    <script src="static/js/layers/lyr14_Brechas_SJL.js"></script>
+    <script src="static/js/layers/lyr15_HogaresconPension65PESJL.js"></script>
+    <script src="static/js/layers/lyr16_HogaresPGHPESJL.js"></script>
 
 
 
 
-        <script src="static/js/layercontrol.js"></script>
-        <script src="static/js/legend.js"></script>
-        <script>
-        
-        </script>
-    </body>
+    <script src="static/js/layercontrol.js"></script>
+    <script src="static/js/legend.js"></script>
+    <script>
+
+    </script>
+</body>
+
 </html>

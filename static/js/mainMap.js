@@ -3,7 +3,7 @@ var map = L.map('map', {
 }).fitBounds([[-12.047726051537177,-77.10106913766255],[-11.847435032199735,-76.75851080034725]]);
 var hash = new L.Hash(map);
 map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a> &middot; <a href="https://github.com/zaideth">Zaideth Rios</a>');
-var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+// var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
 
 function pintarPopup(layer_name) {
     return function(feature, layer){
@@ -47,6 +47,22 @@ var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/
 });
 layer_OpenStreetMap_0;
 map.addLayer(layer_OpenStreetMap_0);
+
+// Leyenda
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend')
+    div.id ='Leyenda';
+    div.innerHTML = '<h3>Leyenda :</h3><br>';  // Añadir título    
+    div.style.backgroundColor = 'white';  // Añadir fondo blanco
+    div.style.padding = '10px';  // Añadir padding para mejor presentación
+    div.style.border = '2px solid #ccc';  // Añadir borde
+    return div;
+};
+
+legend.addTo(map);
+let leyenda_container = document.getElementById('Leyenda');
 
 
 setBounds();

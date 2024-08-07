@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 html, body, #map {
@@ -22,7 +23,6 @@ html, body, #map {
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     font-size: 18px;
     z-index: 1000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 28 px;
     font-weight: bold;
     color: white;
@@ -49,6 +49,15 @@ html, body, #map {
     
 }
 
+@media(max-width: 960px){
+    #header{
+        flex-direction: column;
+        padding:16px;
+    }
+}
+
+
+
 .btns-control{
     width:35px;
     height: 35px;
@@ -57,3 +66,4 @@ html, body, #map {
     text-align: center;
     cursor: pointer;
 }
+
