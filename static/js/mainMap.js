@@ -48,8 +48,15 @@ var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/
 layer_OpenStreetMap_0;
 map.addLayer(layer_OpenStreetMap_0);
 
+// Agregar escala
+L.control
+    .scale({
+        imperial: false,
+    })
+    .addTo(map);
+
 // Leyenda
-var legend = L.control({position: 'bottomright'});
+var legend = L.control({position: 'bottomleft'});
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend')
@@ -62,6 +69,7 @@ legend.onAdd = function (map) {
 };
 
 legend.addTo(map);
+
 let leyenda_container = document.getElementById('Leyenda');
 
 

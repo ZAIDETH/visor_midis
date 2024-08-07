@@ -16,8 +16,13 @@ html, body, #map {
     position: absolute;
     background-color: red ;
     top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 80%;
+    transform: translateX(-100%); */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 60%;
+    max-width: 960px;
     opacity: 0.8;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
@@ -28,15 +33,15 @@ html, body, #map {
     color: white;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
 }
 /* Estilo para la cabecera flotante */
 #header #title {
-    padding:15px;
     margin-left: 10px;
     margin-right: 10px;
+    width: 100%;
     
 
 }
@@ -53,6 +58,7 @@ html, body, #map {
     #header{
         flex-direction: column;
         padding:16px;
+        gap: 8px;
     }
 }
 

@@ -16,9 +16,9 @@ var overlayMaps = {
     "Hogares PGH 2024 - Brechas de Atención": layer_HogaresPGH2024BrechasAtencionSJL_11,
     "Hogares Juntos PE": layer_Juntos_SJL_12,
     "Hogares Contigo PE": layer_Contigo_SJL_13,
-    "layer_Brechas_SJL_14": layer_Brechas_SJL_14,
-    "layer_HogaresconPension65PESJL_15": layer_HogaresconPension65PESJL_15,
-    "layer_HogaresPGHPESJL_16": layer_HogaresPGHPESJL_16
+    "Hogares Brechas de Atención PE": layer_Brechas_SJL_14,
+    "Hogares Pensión 65 PE": layer_HogaresconPension65PESJL_15,
+    "Hogares PGH PE": layer_HogaresPGHPESJL_16
 };
 
 

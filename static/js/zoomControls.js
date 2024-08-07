@@ -62,8 +62,3 @@ L.Control.ForwardButton = L.Control.extend({
 map.addControl(new L.Control.HomeButton({ position: 'topleft' }));
 // map.addControl(new L.Control.BackButton({ position: 'topleft' }));
 // map.addControl(new L.Control.ForwardButton({ position: 'topleft' }));
-L.control
-    .scale({
-        imperial: false,
-    })
-    .addTo(map);
