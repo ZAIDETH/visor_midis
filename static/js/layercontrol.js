@@ -4,18 +4,18 @@ var baseMaps = {
 
 var overlayMaps = {
     "Distritos": layer_Distritos_Lima_1,
-    "Pobreza por manzana": layer_PobrezaenMzINEI_2,
+    "Pobreza en Mzs INEI": layer_PobrezaenMzINEI_2,
     "Riesgo Bajas temperaturas": layer_RiesgoBajasTemperaturas_3,
-    "MC Hogares PGH": layer_MCHogaresPGH2024BrechasSJL_4,
-    "Brecha SJL PE": layer_MCBrechasPESJL_5,
-    "Contigo PE": layer_MCContigoPESJL_6,
-    "Juntos PE": layer_MCJuntosPESJL_7,
-    "Pensión 65": layer_MCPension65PESJL_8,
-    "MCPGHPESJL": layer_MCPGHPESJL_9,
+    "Mapa de Calor PGH 2024 Brechas": layer_MCHogaresPGH2024BrechasSJL_4,
+    "Mapa de Calor Brechas de Atención PE": layer_MCBrechasPESJL_5,
+    "Mapa de Calor Contigo PE": layer_MCContigoPESJL_6,
+    "Mapa de Calor Juntos PE": layer_MCJuntosPESJL_7,
+    "Mapa de Calor Pensión 65 PE": layer_MCPension65PESJL_8,
+    "Mapa de Calor Hogares PGH PE": layer_MCPGHPESJL_9,
     "Escenario Pobreza Lima": layer_EscenarioPobrezaLima_D_10,
-    "layer_HogaresPGH2024BrechasAtencionSJL_11": layer_HogaresPGH2024BrechasAtencionSJL_11,
-    "layer_Juntos_SJL_12": layer_Juntos_SJL_12,
-    "layer_Contigo_SJL_13": layer_Contigo_SJL_13,
+    "Hogares PGH 2024 - Brechas de Atención": layer_HogaresPGH2024BrechasAtencionSJL_11,
+    "Hogares Juntos PE": layer_Juntos_SJL_12,
+    "Hogares Contigo PE": layer_Contigo_SJL_13,
     "layer_Brechas_SJL_14": layer_Brechas_SJL_14,
     "layer_HogaresconPension65PESJL_15": layer_HogaresconPension65PESJL_15,
     "layer_HogaresPGHPESJL_16": layer_HogaresPGHPESJL_16
@@ -26,7 +26,7 @@ var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
 map.on('overlayadd', function (eventLayer) {
-    console.log(eventLayer.name);
+    console.log(eventLayer);
 });
 
 

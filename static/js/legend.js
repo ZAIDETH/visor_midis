@@ -30,13 +30,11 @@ function hideLegend(layerId) {
 }
 
 map.on('overlayadd', function (eventLayer) {
-    debugger
-    showLegend(eventLayer.name);
+    showLegend(eventLayer.layer.options.layerName);
 });
 
 map.on('overlayremove', function (eventLayer) {
-    debugger
-    hideLegend(eventLayer.name);
+    hideLegend(eventLayer.layer.options.layerName);
 });
 
 // $(".leaflet-control-layers").hover(function () {

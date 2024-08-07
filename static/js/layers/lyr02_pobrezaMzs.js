@@ -38,7 +38,7 @@ var layer_PobrezaenMzINEI_2 = new L.geoJson(json_PobrezaenMzINEI_2, {
     attribution: '',
     interactive: true,
     dataVar: 'json_PobrezaenMzINEI_2',
-    layerName: 'layer_PobrezaenMzINEI_2',
+    layerName: 'lyr02',
     pane: 'pane_PobrezaenMzINEI_2',
     onEachFeature: pintarPopup('Pobreza por manzana'),
     style: style_PobrezaenMzINEI_2_0,
@@ -53,7 +53,7 @@ map.addLayer(layer_PobrezaenMzINEI_2);
         categories = ['2', '3', '4', '5'],  // Las categorías deben coincidir con los casos en la función de estilo
         categories_names = ['Nivel de Pobreza Baja', 'Nivel de Pobreza Media', 'Nivel de Pobreza Alta', 'Nivel de Pobreza Muy Alta'],
         labels = []; 
-    div.id= 'Pobreza por manzana';
+    div.id= 'lyr02';
     div.innerHTML = '<h4>Nivel de Pobreza </h4>'
     // Iterar sobre las categorías y generar etiquetas de la leyenda
     for (var i = 0; i < categories.length; i++) {
