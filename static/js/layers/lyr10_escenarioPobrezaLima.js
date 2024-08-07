@@ -34,10 +34,10 @@ function style_EscenarioPobrezaLima_D_10_0_str(value) {
 map.createPane('pane_EscenarioPobrezaLima_D_10');
 map.getPane('pane_EscenarioPobrezaLima_D_10').style.zIndex = 410;
 map.getPane('pane_EscenarioPobrezaLima_D_10').style['mix-blend-mode'] = 'normal';
-var layer_EscenarioPobrezaLima_D_10 = new L.geoJson(json_EscenarioPobrezaLima_D_10, {
+var layer_EscenarioPobrezaLima_D_10 = new L.geoJson(json_EscenarioPobrezaLima, {
     attribution: '',
     interactive: true,
-    dataVar: 'json_EscenarioPobrezaLima_D_10',
+    dataVar: 'json_EscenarioPobrezaLima',
     layerName: 'lyr10',
     pane: 'pane_EscenarioPobrezaLima_D_10',
     onEachFeature: pintarPopup('EscenarioPobrezaLima_D'),
@@ -67,8 +67,6 @@ bounds_group.addLayer(layer_EscenarioPobrezaLima_D_10);
     div.innerHTML += labels.join('<br>');
     div.style.backgroundColor = 'white';  // Añadir fondo blanco
     div.style.padding = '10px';  // Añadir padding para mejor presentación
-    div.style.border = '2px solid #ccc';  // Añadir borde
     div.style.display = 'none'; // Añadir display para ocultar la leyenda
 
-    map.getContainer().appendChild(div);
 })();

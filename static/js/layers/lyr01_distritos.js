@@ -38,7 +38,6 @@ map.addLayer(layer_Distritos_Lima_1);
     div.innerHTML = '<h4>Distritos</h4>';
 
     // Generar la etiqueta de la leyenda para el punto
-    debugger
     var style = style_Distritos_Lima_1_0();
     labels.push(
         '<i style="background: white' + '; border: 1px solid ' + style.color+'; width: 18px; height: 18px; display: inline-block; margin-right: 5px;"></i> '+
