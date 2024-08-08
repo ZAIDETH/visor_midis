@@ -23,10 +23,10 @@ function style_MCBrechasPESJL_5_0(feature) {
 // Función de estilo basada en valor directo
 function style_MCBrechasPESJL_5_0_str(value) {
     const colors = {
-        '1': 'rgba(178,223,138,1.0)',
-        '2': 'rgba(247,247,8,1.0)',
-        '3': 'rgba(255,127,0,1.0)',
-        '4': 'rgba(250,10,26,1.0)',
+        '1': 'rgba(178,223,138,0.65)',
+        '2': 'rgba(247,247,8,0.65)',
+        '3': 'rgba(255,127,0,0.65)',
+        '4': 'rgba(250,10,26,0.65)',
     };
     return generateStyle(colors[value] || 'rgba(35,35,35,0.0)');
 }

@@ -1,6 +1,8 @@
 var baseMaps = {
+    "TOPO": layer_topo,
     "OpenStreetMap": layer_OpenStreetMap_0,
     "ESRI World Imagery": layer_EsriImagery
+    
 };
 
 var overlayMaps = {
@@ -20,7 +22,6 @@ var overlayMaps = {
     "Hogares Brechas de Atención PE": layer_Brechas_SJL_14,
     "Hogares Pensión 65 PE": layer_HogaresconPension65PESJL_15,
     "Hogares PGH PE": layer_HogaresPGHPESJL_16,
-    "Distritos cenepred": arcgisLayer
 };
 
 
@@ -30,6 +31,7 @@ var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 map.on('overlayadd', function (eventLayer) {
     console.log(eventLayer);
 });
+
 
 
 // L.Control.CustomButtons = L.Control.Layers.extend({
