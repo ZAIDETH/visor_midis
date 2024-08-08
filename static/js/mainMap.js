@@ -46,7 +46,22 @@ var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/
     maxNativeZoom: 19
 });
 layer_OpenStreetMap_0;
-map.addLayer(layer_OpenStreetMap_0);
+// map.addLayer(layer_OpenStreetMap_0);
+
+var layer_EsriImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles © Esri'
+});
+
+map.addLayer(layer_EsriImagery);
+
+var arcgisLayer = L.esri.dynamicMapLayer({
+    url: 'https://sigrid.cenepred.gob.pe/arcgis/rest/services/Informacion_Complementaria/MapServer',
+    layers: [6020300] // Especifica el ID de la subcapa
+})
+
+map.addLayer(arcgisLayer);
+
+
 
 // Agregar escala
 L.control
@@ -54,6 +69,8 @@ L.control
         imperial: false,
     })
     .addTo(map);
+
+
 
 // Leyenda
 var legend = L.control({position: 'bottomleft'});

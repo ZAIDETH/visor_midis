@@ -1,5 +1,6 @@
 var baseMaps = {
-    "OpenStreetMap": layer_OpenStreetMap_0
+    "OpenStreetMap": layer_OpenStreetMap_0,
+    "ESRI World Imagery": layer_EsriImagery
 };
 
 var overlayMaps = {
@@ -18,7 +19,8 @@ var overlayMaps = {
     "Hogares Contigo PE": layer_Contigo_SJL_13,
     "Hogares Brechas de Atención PE": layer_Brechas_SJL_14,
     "Hogares Pensión 65 PE": layer_HogaresconPension65PESJL_15,
-    "Hogares PGH PE": layer_HogaresPGHPESJL_16
+    "Hogares PGH PE": layer_HogaresPGHPESJL_16,
+    "Distritos cenepred": arcgisLayer
 };
 
 
